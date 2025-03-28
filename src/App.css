@@ -1,0 +1,1990 @@
+/*start of global designs*/
+body {
+  padding: 8px 14px;
+  background-image:url("../../../meflm/Downloads/background1 (1).webp.zip")
+}
+
+main {
+  min-height: 40vh;
+  position: relative;
+}
+
+ul {
+  list-style: none;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+img {
+  width: 100%;
+}
+
+section {
+  padding: 60px 0px;
+}
+
+.section_title {
+  font-size: 44px;
+  font-weight: 600;
+  color: rgb(58, 58, 58);
+}
+
+.fw-bold{
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.loading_spinner {
+  height: 100vh;
+  width: 100%;
+}
+
+.starIcon {
+  color: rgb(255, 194, 38);
+}
+
+/*end of global designs*/
+
+
+
+/*----------------------------------------------------
+------------------------------------------------------*/
+
+/*start of navbar designs*/
+.sticky_header {
+  width: 100%;
+  background: linear-gradient(45deg, #F56A6D, #F1686B, #ED6669, #EB6669, #E56366, #E16164);  ;
+  padding-top: 4p2;
+  height: 70px;
+  line-height: 30px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.288);
+}
+
+.header {
+  width: 100%;
+  height: 80px;
+  line-height: 62px;
+}
+
+.nav_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 100%;
+  column-gap: 10px;
+  width: 20%;
+}
+
+.logo img {
+  width: 100%;
+  height: 54px;
+}
+
+.logo h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: rgb(213, 0, 64);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  column-gap: 100px;
+}
+
+.nav_item a {
+  font-size: 22px;
+  color: white;
+}
+
+.nav_item a:hover {
+  color: rgb(213, 0, 64);
+}
+
+.nav_link {
+  color: black !important;
+  font-weight: 700;
+}
+
+.nav_icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 18px;
+}
+
+.favIcon,
+.cartIcon {
+  color: black;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.fav_icon,
+.cart_icon {
+  position: relative;
+}
+
+.fav_icon .badge,
+.cart_icon .badge {
+  position: absolute;
+  top: 16%;
+  right: -25%;
+  height: 15px;
+  width: 15px;
+  content: "";
+  background-color: rgb(213, 0, 64);
+  color: whitesmoke;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.nav_icons .profile img {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.nav_icons .profile {
+  position: relative;
+  z-index: 9;
+}
+
+.nav_icons .profile .profile_actions {
+  position: absolute;
+  top: 116%;
+  left: -75%;
+  width: 120px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(232, 232, 232, 0.766);
+  flex-direction: column;
+  cursor: pointer;
+  border-radius: 0px 0px 16px 16px;
+  display: none;
+  line-height: 38px;
+  padding-top: 10px;
+}
+
+.nav_icons .profile .profile_actions p{
+  padding-left: 10px;
+  margin-left: 8px;
+}
+
+.nav_icons .profile .profile_actions a {
+  padding-left: 10px;
+  margin-left: 8px;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+.nav_icons .profile .profile_actions p:hover, a:hover {
+  color: rgb(213, 0, 64);
+}
+
+.nav_icons .profile .active_profile {
+  display: block;
+}
+
+.mobile_menu {
+  align-items: center;
+  color: black;
+  width: 50px;
+  height: 50px;
+  display: none;
+}
+
+/*end of navbar designs*/
+
+/*----------------------------------------------------
+------------------------------------------------------*/
+
+/*start of Home designs*/
+
+/*1-start hero section*/
+.hero_section {
+  background: linear-gradient(90deg, #F56A6D, #F1686B, #ED6669, #EB6669, #8F3E40);  ;
+  width: 100%;
+}
+
+.hero_section h2 {
+  color: whitesmoke;
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  margin-top: 20px;
+}
+
+.hero_section .hero_subtitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(60, 60, 60);
+  margin-top: 14px;
+}
+
+.hero_section p {
+  font-size: 16px;
+  font-weight: 200;
+  color: rgb(60, 0, 12);
+  line-height: 26px;
+  margin-bottom: 20px;
+}
+
+.hero_section .p-hero {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.shop_btn {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 24px;
+  font-weight: 600;
+  background-color: #000000;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.38);
+  margin-top: 26px;
+}
+
+.shop_btn a {
+  color: whitesmoke;
+}
+
+.shop_btn a:hover,a:focus {
+  color: whitesmoke;
+}
+
+.shop_btn:hover {
+  background-color: rgb(158, 0, 66);
+  color: whitesmoke;
+}
+
+.hero_img img {
+  height: 450px;
+  object-fit: fill;
+  margin-left: 16px;
+}
+
+/*1-end hero section*/
+
+/*2-start services section*/
+.service_item {
+  padding: 12px 20px;
+  background-color: rgb(252, 232, 238);
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  column-gap: 14px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.service_item span .Icon {
+  background-color: #fff;
+  color: rgb(138, 61, 93);
+  width: 42px;
+  height: 42px;
+  padding: 4px;
+  border-radius: 10px;
+}
+
+.service_item h3 {
+  color: black;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  padding-top: 8px;
+}
+
+.service_item p {
+  font-size: 14px;
+}
+
+/*2-end services section*/
+
+/*3-start trending products section*/
+.product_item {
+  cursor: pointer;
+  margin-bottom: 28px;
+  border-radius: 15px;
+  border: 1px solid rgb(138, 61, 93);
+}
+
+.product_img img{
+  object-fit: fill;
+  height: 180px;
+  border-radius: 14px 14px 0px 0px;
+}
+
+.product_item .product_details{
+  background-color: rgb(255, 239, 244);
+  padding-bottom: 8px;
+  border-radius: 0px 0px 15px 15px;
+}
+
+.product_info h3 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  padding-top: 8px;
+}
+
+.product_info h3 a:hover {
+  font-size: 24px;
+  color: rgb(138, 61, 93);
+}
+
+.product_info span {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.product_card-bottom .price {
+  font-size: 14px;
+  font-weight: 800;
+  color: rgb(73, 73, 73);
+}
+
+.product_card-bottom span .addToCartIcon {
+  background-color: rgb(138, 61, 93);
+  width: 26px;
+  color: whitesmoke;
+  border-radius: 15px;
+}
+
+/*3-end trending products section*/
+
+
+/*4-start sections website section*/
+.home .sales .sales_section {
+  background-image: url("https://img.freepik.com/free-vector/special-offer-sale-banner-hexagonal-shape-with-stars_1017-16283.jpg?1&w=1480&t=st=1692197350~exp=1692197950~hmac=97592aa5dd9d3645f0048dfa83376f721f0a1e88e4a6b73b3d8cbaf005324b2e");
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  border-radius: 8px;
+  padding-top: 14px;
+}
+
+.home .sections_website .chairs_section{
+  background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.255), rgba(0, 0, 0, 0.476)), url("assets/188.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  height: 240px;
+  margin-bottom: 24px;
+  color: whitesmoke;
+  padding-left: 28px;
+  padding-top: 22px;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.38);
+}
+
+.home .sections_website .beds_section{
+  background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.255), rgba(0, 0, 0, 0.476)), url("assets/still-life-rendering-jackets-display.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 240px;
+  margin-bottom: 24px;
+  color: whitesmoke;
+  padding-left: 28px;
+  padding-top: 22px;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.38);
+}
+
+.home .sections_website .sofas_section{
+  background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.255), rgba(0, 0, 0, 0.476)), url("https://img.freepik.com/free-psd/empty-wall-with-elegant-sofa_176382-1276.jpg?w=1060&t=st=1692196835~exp=1692197435~hmac=ca21c146f7a7e4ee7ebc3ff5f83f5317f9b0ae74b8a41fe0bc409c91d8e2c510");
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 240px;
+  color: whitesmoke;
+  padding-left: 28px;
+  padding-top: 22px;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.38);
+}
+
+.home .sections_website .decorations_section{
+  background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.255), rgba(0, 0, 0, 0.476)), url("assets/Rectangle 208-2.png");
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  height: 240px;
+  color: whitesmoke;
+  padding-left: 28px;
+  padding-top: 22px;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.38);
+}
+
+.home .sections_website .chairs_section p,.home .sections_website .beds_section p,.home .sections_website .sofas_section p, .home .sections_website .decorations_section p{
+  background-color: rgba(243, 1, 66, 0.739);
+  height: 40px;
+  padding: 4px 18px;
+  border-radius: 14px;
+}
+
+/*4-end sectiona website section*/
+
+
+
+/*4-start Best sales section*/
+
+/*4-end Best sales section*/
+
+
+/*5-start Timer count section*/
+
+.timer_count {
+  background-color: rgba(108, 59, 79, 0.765);
+  height: 500px;
+  width: 100%;
+  color: whitesmoke;
+}
+
+.timer_count .timerImage {
+  width: 100%;
+  height: 90%;
+  object-fit: contain;
+}
+
+.timer_count .buy_button {
+  padding: 10px 26px;
+  font-size: 20px;
+  font-weight: 600;
+  outline: none;
+  border: none;
+  border-radius: 25px;
+  background-color: rgb(138, 61, 93);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.38);
+  margin-bottom: 0;
+}
+
+.timer_count .buy_button:hover {
+  background-color: rgb(152, 16, 73);
+}
+
+.timer_count .buy_button a {
+  color: whitesmoke;
+}
+
+.clock_wrapper {
+  margin-top: 28px;
+  margin-bottom: 24px;
+}
+
+.clock_data {
+  margin-right: 24px;
+}
+
+.clock_data h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: whitesmoke;
+}
+
+.clock_data h5 {
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.clock_data span {
+  margin-left: 12px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.clock_top-content h4 {
+  font-size: 28px;
+}
+
+.clock_top-content h3 {
+  font-size: 34px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+/*5-end Timer count section*/
+
+
+/**-start footer section*/
+.footer {
+  padding-top: 40px;
+  background-color: rgba(195, 128, 156, 0.714);
+  width: 100%;
+  position:relative;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.288);
+  margin-top: 200px !important;
+  bottom: 0;
+}
+
+.footer_text {
+  margin-top: 8px;
+  line-height: 22px;
+}
+
+.footerLinks_wrapper .footerLink {
+  border: none;
+  font-size: 16px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  background-color: transparent;
+  width: fit-content;
+}
+
+.footerLinks_wrapper {
+  padding-left: 0px;
+
+}
+
+.footerLinks_wrapper .footerLink a:hover {
+  color: rgb(213, 0, 64);
+  font-size: 18px;
+}
+
+.footer_copyRight {
+  margin-top: 4px;
+  padding-top: 14px;
+  border-top: 0.5px solid black;
+}
+
+/**-end footer section*/
+
+
+
+
+
+/*start shop design page*/
+.common_section{
+  background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129804.jpg?w=996&t=st=1689750704~exp=1689751304~hmac=520c54b296e43c2bdb4abcb439dde7e8c966c7f1c56acd2fb5c1b8026633f585");
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+}
+
+.shop .filter_widget select {
+  border: none;
+  border-radius: 15px;
+  padding: 6px 12px;
+  background-color: rgba(253, 165, 193, 0.566);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.288);
+}
+
+.shop .filter_widget select:focus {
+  outline: none !important;
+}
+
+.search_box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(197, 79, 116, 0.566);
+  padding: 6px 12px;
+  border-radius: 15px;
+}
+
+.search_box input {
+  border: none;
+  padding: 0;
+  outline: none;
+  width: 100%;
+}
+
+.search_box .searchIcon {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  color: rgba(197, 79, 116, 0.786);
+}
+
+/*end shop design page*/
+
+
+
+
+
+/*start product details design page*/
+.product_details-info {
+  margin-bottom: 0;
+  padding-bottom: 0px;
+
+}
+
+.product_details-info .product_img img {
+  object-fit: fill;
+  width: 100%;
+  height: 400px;
+  border-radius: 12px;
+}
+
+.product_details-info .product_name {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  padding-top: 6px;
+}
+
+.product_details-info .starIcon {
+  color: rgb(255, 194, 38);
+  width: 24px;
+}
+
+.product_details-info .product_details .product_rating-feedbac p {
+  font-size: 16px;
+}
+
+.product_details-info .product_details span {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.product_details-info .product_details .small_desc {
+  font-size: 23px;
+  font-weight: 500;
+  color: rgb(91, 91, 91);
+  margin-top: 8px;
+  margin-bottom: 40px;
+}
+
+.product_details-info .product_details .buy_button {
+  border: none;
+  padding: 10px 24px;
+  border-radius: 24px;
+  font-weight: 600;
+  background-color: rgb(138, 61, 93);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.38);
+  color: whitesmoke;
+  outline: none;
+}
+
+.product_details-info .product_details .fav_button {
+  border: none;
+  padding: 6px 24px;
+  border-radius: 24px;
+  font-weight: 600;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.38);
+  color: whitesmoke;
+  outline: none;
+}
+
+.product_details-info .product_details .fav_button .favIcon{
+  width: 28px;
+  height: 28px;
+  padding-top: 4px;
+  color: gray;
+  font-weight: 600;
+}
+
+.product_details-info .product_details .fav_button .disactive-fav{
+  width: 28px;
+  height: 28px;
+  padding-top: 4px;
+  color: red;
+  font-weight: 600;
+}
+
+.tab_section .tab_wrapper h5 {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.tab_section .active_tab {
+  font-weight: 600;
+  color: rgb(138, 61, 93);
+}
+
+.product_review .review_wrapper li {
+  border-left: 2px solid rgb(138, 61, 93);
+  padding: 10px 0px 1px 8px;
+  margin: 14px 0px 18px;
+}
+
+.product_review .review_wrapper li .fw-bold {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.tab_content .product_desc {
+  font-size: 20px;
+  padding-top: 8px;
+}
+
+.product_review-form {
+  width: 100%;
+  border-top: 1.5px solid rgb(138, 61, 93);
+  padding-top: 8px;
+  background-color: rgba(248, 222, 233, 0.501);
+  padding: 8px 16px 18px;
+  border-radius: 10px;
+
+}
+
+.product_review-form .input_field {
+  width: 100%;
+  margin-left: 6px;
+  padding: 6px 12px;
+  border: 1px solid rgba(197, 79, 116, 0.566);
+  border-radius: 15px;
+}
+
+.product_review-form .starIcon {
+  color: rgb(198, 149, 27);
+  width: 24px;
+} 
+
+.product_review-form .active_star .starIcon {
+  color: rgb(255, 219, 38);
+  width: 24px;
+}
+
+.product_review-form .send_review {
+  margin-top: 26px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  background-color: rgb(138, 61, 93);
+  color: whitesmoke;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.related_products h3 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/*end product details design page*/
+
+
+
+
+
+/*start cart design page*/
+
+.cart_section {
+  width: 100%;
+  padding: 6px 10px;
+  margin-top: 26px;
+}
+
+.cart_section table {
+  width: 100%;
+  table-layout: auto;
+  box-sizing: content-box;
+}
+
+.cart_section thead {
+  border-bottom: 1px solid #000;
+}
+
+.cart_section thead th {
+  padding-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.cart_section tbody img {
+  width: 100px;
+  object-fit: cover;
+  height: 80px;
+  border-radius: 10px;
+}
+
+.cart_section td p {
+  font-size: 20px;
+  padding-top: 18px;
+}
+
+.cart_section .reciet {
+  padding: 6px 12px 16px;
+  background-color: rgba(248, 222, 233, 0.501);
+  border: 1.5px solid rgb(138, 61, 93);
+  border-radius: 10px;
+}
+
+.cart_section .reciet .section_title {
+  font-size: 22px;
+  font-weight: 600;
+  padding-bottom: 4px;
+}
+
+.cart_section h6 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.cart_section table tbody td span .addToCartIcon,.deleteFromCartIcon{
+  cursor: pointer;
+  width: 40%;
+  height: 40px;
+  padding: 6px;
+  margin-top: 18px;
+  color: rgb(138, 61, 93);
+  background-color: rgba(255, 228, 239, 0.603);
+  border-radius: 20px;
+}
+
+.cart_section table tbody td span .deleteFromCartIcon{
+  border: 1px solid rgb(138, 61, 93);
+  background-color: white;
+}
+
+.cart_section .reciet_action {
+  padding: 6px 0px;
+}
+
+.cart_section .reciet_action .shopButton{
+  padding: 6px 12px;
+  border: none;
+  background-color: rgb(138, 61, 93);
+  border-radius: 20px;
+  outline: none;
+  font-weight: 600;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.cart_section .reciet_action .checkButton{
+  padding: 6px 12px;
+  border: 1px solid rgb(138, 61, 93);
+  background-color: rgb(241, 209, 222);
+  border-radius: 20px;
+  outline: none;
+  font-weight: 600;
+  width: 100%;
+}
+
+.cart_section .reciet_action .checkButton a:hover{
+  color: #000;
+}
+
+.cart_section form .orderButton{
+  width: 100%;
+  padding: 10px;
+  margin-top: 38px;
+  background-color: rgb(138, 61, 93);
+  border-radius: 20px;
+  outline: none;
+  font-weight: 600;
+  border: none;
+  color: whitesmoke;
+}
+/*end cart design page*/
+
+
+/*start login page design*/
+
+.login {
+  padding: 40px;
+  height: 100%;
+  margin-top: 100px;
+}
+.login .section_title {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.login .login_form {
+  padding: 34px 48px;
+  background-color: rgba(212, 151, 177, 0.714);
+  width: 100%;
+  border-radius: 15px;
+}
+
+.login .login_form .form-control {
+  width: 100%;
+  border: 1px solid rgba(197, 79, 116, 0.566);
+  border-radius: 14px;
+  background-color: #fff;
+  outline: none;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.288);
+}
+
+.login .login_form .form-control:focus {
+  outline: none;
+  border: 2px solid rgba(197, 79, 116, 0.566);
+}
+
+.login_form label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.login_form button {
+  width: 100%;
+  margin-top: 34px;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  background-color: rgb(138, 61, 93);
+  border-radius: 26px;
+  outline: none;
+  color: whitesmoke;
+}
+
+.login .login_form .google-button{
+  cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  border: 1px solid rgb(138, 61, 93);
+  background-color:  rgb(255, 226, 237);
+  border-radius: 26px;
+  outline: none;
+  color: black;}
+/*end login page design*/
+
+
+/*start profile page design*/
+
+.user_profile-details .user_container {
+  border-bottom:1px solid black ;
+  padding: 22px 24px;
+}
+
+.user_profile-details .user_container .user_img {
+  width: 100%;
+  height: 150px;
+}
+
+.user_profile-details .user_container .user_img img {
+  width: 100%;
+  height: 150px;
+  border-radius: 50%;
+  border: 0.5px solid black;
+  object-fit: cover;
+  padding: 4px;
+}
+
+.user_profile-details .user_container .user_data {
+  width: 100%;
+}
+
+.user_profile-details .user_container .user_data p {
+  line-height: 14px;
+}
+
+.user_profile-details .user_container .user_data .actions_buttons,.actions_buttons2 {
+  width: 100%;
+}
+
+.user_profile-details .user_container .user_data .actions_buttons button {
+  width: 100%;
+  padding: 8px 20px;
+  margin-top: 10px;
+  border-radius: 50px;
+  border: none;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.288);
+  font-size: 14px;
+  font-weight: 600;
+  background-color: rgb(138, 61, 93);
+  color: whitesmoke;
+}
+
+.user_profile-details .user_container .user_data .actions_buttons2 button {
+  width: 100%;
+  padding: 8px 20px;
+  margin-top: 10px;
+  border-radius: 50px;
+  border: 1px solid rgb(138, 61, 93);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.288);
+  font-size: 14px;
+  font-weight: 600;
+  color: black;
+  background-color: transparent;
+}
+
+.user_profile-details .tab_section .tab_wrapper{
+  border-bottom: 1px solid black;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+/*end profile page design*/
+
+
+
+
+
+
+
+
+
+
+
+
+/* START! Host Designs*/
+
+/*start host navbar design*/
+
+.host .header .sticky_header {
+  width: 100%;
+  background-color: whitesmoke;
+  padding-top: 4p2;
+  height: 70px;
+  line-height: 30px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.288);
+}
+
+.host .header {
+  width: 100%;
+  height: 80px;
+  line-height: 62px;
+}
+
+.host .header .nav_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.host .header .search_box {
+  height: 40px;
+  width: 100%;
+  padding-left: 0px;
+  margin-left: 18px;
+  margin-right: 18px;
+  
+}
+
+
+
+.host .header .nav_icons .profile img {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.host .header .nav_icons .profile {
+  position: relative;
+  z-index: 9;
+}
+
+.host .header .nav_icons .profile .profile_actions {
+  position: absolute;
+  top: 128%;
+  width: 280%;
+  left: -28px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(232, 232, 232, 0.766);
+  flex-direction: column;
+  cursor: pointer;
+  border-radius: 0px 0px 16px 16px;
+  display: none;
+}
+
+.host .header .nav_icons .profile .profile_actions p{
+  padding-left: 10px;
+  margin-left: 8px;
+}
+
+.host .header .nav_icons .profile .profile_actions a {
+  padding-left: 10px;
+  margin-left: 8px;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+.host .header .nav_icons .profile .profile_actions p:hover, a:hover {
+  color: rgb(213, 0, 64);
+}
+
+.host .header .nav_icons .profile .active_profile {
+  display: block;
+}
+
+.host .header .search_box input {
+  height: 40px;
+  width: 100%;
+  margin-left: 0;
+  padding-left: 8px;
+  background-color: transparent;
+}
+
+
+
+.host .naving_links {
+  line-height: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color:gray;
+}
+
+.host .naving_links .navigation {
+  border-bottom: 1px solid black;
+  padding-bottom: 0px;
+  margin-bottom: 38px;
+}
+
+/*end host navbar design*/
+
+
+/*start host add products page design*/
+
+.host .add_product-page{
+  padding-bottom: 0;
+}
+
+.host .add_product-page .add_product-form {
+  padding: 38px 16px;
+  border-radius: 18px;
+  background-color: rgb(255, 232, 238);
+}
+
+.host .add_product-page .section_title {
+  font-size: 28px;
+}
+
+.host .add_product-page form input,.host .add_product-page form textarea,.host .add_product-page form select {
+  border: 1px solid  rgb(144, 16, 50);
+  border-radius: 14px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.288);
+}
+
+.host .add_product-page form input:focus, .host .add_product-page form textarea:focus ,.host .add_product-page form select:focus {
+  border: 2px solid  rgb(144, 16, 50);
+  outline: none;
+}
+
+.host .add_product-page form button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 14px;
+  margin-top: 16px;
+  border: none;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.288);
+  background-color: rgb(138, 61, 93);
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+.host .add_product-page input[type="file"] {
+  display: none;
+}
+
+.host .add_product-page .custom-button label{
+  cursor: pointer;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.79);
+  width: 100%;
+  padding: 10px;
+  border-radius: 14px;
+  font-weight: 600;
+}
+
+.host .add_product-page .custom-button label .icon{
+  width: 38px;
+  height: 28px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  color: rgb(138, 61, 93);
+}
+/*end host add products page design*/
+
+
+/*start host all products page design*/
+
+.host .product_section table {
+  width: 100%;
+  table-layout: auto;
+  box-sizing: content-box;
+}
+
+.host .product_section thead {
+  border-bottom: 1px solid #000;
+}
+
+.host .product_section thead th {
+  padding-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.host .product_section tbody img {
+  width: 100px;
+  object-fit: contain;
+  height: 100%;
+}
+
+.host .product_section td p {
+  font-size: 20px;
+}
+
+.host .product_section td p .starIcon {
+  color: gold;
+}
+
+.host .product_section span span .Icon {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  cursor: pointer;
+  color:  rgb(138, 61, 93) ;
+  border-radius: 10px;
+  background-color: rgb(255, 232, 238);
+}
+
+.host .product_section span span .Icon:hover {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  cursor: pointer;
+  color:  whitesmoke ;
+  border-radius: 10px;
+  background-color: rgb(138, 61, 93);
+}
+
+.host .filter_products-page button{
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 14px;
+  padding: 8px 10px;
+  background-color: rgb(255, 232, 238);
+  border: none;
+  border-radius: 14px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.288);
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.host .filter_products-page .active_filter{
+  background-color: rgb(138, 61, 93);
+  color: whitesmoke;
+}
+
+/*end host all products page design*/
+
+
+
+
+/*start host product details page design*/
+
+.host .product_details-info {
+  margin-top: 0;
+  padding-top: 4px;
+}
+
+.host .product_details-info .section_title{
+  font-size: 28px;
+  margin-bottom: 18px;
+}
+
+.host .product_details-info .product_img img{
+  object-fit: fill;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.host .product_details-info h4 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.host .product_details-info h4 span {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.host .product_details-info button {
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(138, 61, 93);
+  color: whitesmoke;
+}
+
+.host .tab_section .tab_wrapper{
+  border-bottom: 1px solid black;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.host .update_product-form .section_title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.host .update_product-form form input,.host .update_product-form form select,.host .update_product-form form textarea {
+  border: 1px solid  rgb(144, 16, 50);
+  border-radius: 14px;
+  padding: 6px 12px;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.288);
+}
+
+.host .update_product-form form input:focus,.host .update_product-form form select:focus,.host .update_product-form form textarea:focus {
+  border: 2px solid  rgb(144, 16, 50);
+}
+
+.host .update_product-form form button {
+  width: 100%;
+  margin-top: 26px;
+  padding: 10px;
+  border: none;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.288);
+  border-radius: 26px;
+  margin-bottom: 0;
+  background-color: rgb(138, 61, 93);
+  font-size: 20px;
+  font-weight: bold;
+  color: whitesmoke;
+}
+
+/*end host product details page design*/
+
+
+/*start host all users page design*/
+
+.host .users_section table {
+  width: 100%;
+  table-layout: auto;
+  box-sizing: content-box;
+}
+
+.host .users_section thead {
+  border-bottom: 1px solid #000;
+}
+
+.host .users_section thead th {
+  padding-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.host .users_section tbody img {
+  width: 100px;
+  object-fit: fill;
+  height: 90px;
+  border-radius: 12px;
+}
+
+.host .users_section td p {
+  font-size: 20px;
+}
+
+.host .users_section span span .Icon {
+  width: 100%;
+  height: 44px;
+  padding: 10px;
+  cursor: pointer;
+  color:  rgb(138, 61, 93) ;
+  border-radius: 10px;
+  background-color: rgb(255, 232, 238);
+}
+
+.host .users_section span span .Icon:hover {
+  color:  whitesmoke ;
+  border-radius: 10px;
+  background-color: rgb(138, 61, 93);
+}
+
+/*end host all users page design*/
+
+
+
+
+/*start host all orders page design*/
+
+/*end host all orders page design*/
+
+
+
+
+
+/*start host order details page design*/
+.host .order_details-section{
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.host .order_details-section .user_img img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 45px;
+}
+
+.host .order_details-section .user_details .user_container {
+  border-bottom:1px solid rgba(128, 128, 128, 0.544) ;
+  padding-bottom: 64px;
+  margin-bottom: 0;
+}
+
+.host .order_details-section table img {
+  width: 120px;
+  height: 80px;
+  object-fit: fill;
+}
+
+.host .order_details-section .order_actions button{
+  width: 80%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(138, 61, 93);
+  color: whitesmoke;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/*end host order details page design*/
+
+
+
+
+
+
+
+
+/* END! Host Designs*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*start responsive designs*/
+
+@media only screen and (max-width:760px) {
+
+  /*start of navbar designs*/
+
+  .navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.53);
+    z-index: 9999;
+    display: none;
+  }
+
+  .menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    background: #fff;
+    z-index: 99999;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .active_menu {
+    display: block;
+  }
+
+  .mobile_menu {
+    display: block !important;
+  }
+
+  .logo img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .logo h1 {
+    font-size: 22px !important;
+  }
+
+  .nav_icons {
+    column-gap: 18px;
+  }
+
+
+  .favIcon,
+  .cartIcon {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .fav_icon .badge,
+  .cart_icon .badge {
+    height: 14px;
+    width: 14px;
+    font-size: 10px;
+    font-weight: 600;
+  }
+
+  .nav_icons span img {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+  }
+
+  /*end of navbar designs*/
+
+  /*start hero section designs*/
+
+  .hero_section h2 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    margin-top: 10px;
+  }
+
+  .hero_section .hero_subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+
+  .hero_section p {
+    font-size: 14px;
+    font-weight: 200;
+    line-height: 24px;
+    margin-bottom: 20px;
+  }
+
+  .shop_btn {
+    padding: 8px 12px;
+    margin-top: 22px;
+    font-weight: 400;
+  }
+
+
+  .hero_img img {
+    height: 380px;
+    object-fit: fill;
+    margin-left: 12px;
+  }
+
+  /*end hero section designs*/
+
+  /*start services section designs*/
+  .service_item {
+    padding: 10px 18px;
+    background-color: rgb(252, 232, 238);
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    column-gap: 12px;
+    cursor: pointer;
+    margin: 2px;
+  }
+
+  .service_item span .Icon {
+    background-color: #fff;
+    color: rgb(138, 61, 93);
+    width: 22px;
+    height: 22px;
+    padding: 4px;
+    border-radius: 10px;
+  }
+
+  .service_item h3 {
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    padding-top: 8px;
+  }
+
+  .service_item p {
+    font-size: 12px;
+  }
+
+  /*end services section design*/
+
+  /*start timer section design*/
+  .clock_wrapper {
+    justify-content: center;
+  }
+
+  .count_down-col {
+    text-align: center;
+    display: block;
+  }
+
+  .timer_image-holder {
+    display: none;
+  }
+
+  .timer_count .buy_button {
+    padding: 8px 24px;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  .clock_wrapper {
+    margin-top: 26px;
+    margin-bottom: 22px;
+  }
+
+  .clock_data {
+    margin-right: 20px;
+  }
+
+  .clock_data h1 {
+    font-size: 26px;
+    font-weight: 500;
+  }
+
+  .clock_data h5 {
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  .clock_data span {
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .clock_top-content h4 {
+    font-size: 26px;
+  }
+
+  .clock_top-content h3 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  /*start footer section designs*/
+  .footer {
+    padding-top: 36px;
+    
+  }
+
+  .footer_text {
+    margin-top: 6px;
+    line-height: 20px;
+  }
+
+  .footerLinks_wrapper .footerLink {
+    font-size: 14px;
+  }
+
+  .footerLinks_wrapper .footerLink a:hover {
+    font-size: 16px;
+  }
+
+  .footer_copyRight {
+    margin-top: 2px;
+    padding-top: 12px;
+  }
+
+  /**-end footer section*/
+
+
+}
+
+@media only screen and (min-width: 760px) and (max-width: 992px) {
+  /*start of navbar designs*/
+
+  .navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.53);
+    z-index: 9999;
+    display: none;
+  }
+
+  .menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    background: #fff;
+    z-index: 99999;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .active_menu {
+    display: block;
+  }
+
+  .mobile_menu {
+    display: block !important;
+  }
+
+  .logo img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .logo h1 {
+    font-size: 22px !important;
+  }
+
+  .nav_icons {
+    column-gap: 18px;
+  }
+
+  .favIcon,
+  .cartIcon {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .fav_icon .badge,
+  .cart_icon .badge {
+    height: 14px;
+    width: 14px;
+    font-size: 10px;
+    font-weight: 600;
+  }
+
+  .nav_icons span img {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+  }
+
+  /*end of navbar designs*/
+
+  /*start design hero section*/
+
+  .hero_section h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    margin-top: 14px;
+  }
+
+  .hero_section .hero_subtitle {
+    font-size: 26px;
+    font-weight: 600;
+    margin-top: 12px;
+  }
+
+  .hero_section p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    margin-bottom: 22px;
+  }
+
+  .shop_btn {
+    padding: 10px 14px;
+    margin-top: 24px;
+    font-weight: 600;
+  }
+
+
+  .hero_img img {
+    height: 400px;
+    object-fit: fill;
+    margin-left: 14px;
+  }
+
+  /*end hero section designs*/
+
+
+  /*start design services section*/
+
+  /*end of services design section*/
+
+
+  /*start timer section design*/
+  .clock_wrapper {
+    justify-content: center;
+  }
+
+  .count_down-col {
+    text-align: center;
+    display: block;
+  }
+
+  .timer_image-holder {
+    display: none;
+  }
+
+  .timer_count .buy_button {
+    padding: 10px 26px;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  .clock_wrapper {
+    margin-top: 28px;
+    margin-bottom: 24px;
+  }
+
+  .clock_data {
+    margin-right: 22px;
+  }
+
+  .clock_data h1 {
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .clock_data h5 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .clock_data span {
+    margin-left: 12px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .clock_top-content h4 {
+    font-size: 28px;
+  }
+
+  .clock_top-content h3 {
+    font-size: 34px;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+
+  /*end of timer design section*/
+
+
+  /*start footer section designs*/
+  .footer {
+    padding-top: 38px;
+  }
+
+  .footer_text {
+    margin-top: 8px;
+    line-height: 22px;
+  }
+
+  .footerLinks_wrapper .footerLink {
+    font-size: 12px;
+  }
+
+  .footerLinks_wrapper .footerLink a:hover {
+    font-size: 16px;
+  }
+
+  .footer_copyRight {
+    margin-top: 2px;
+    padding-top: 12px;
+  }
+
+  /**-end footer section*/
+
+}
+
+/*end responsive designs*/
+
+
+
+/*news edit*/
+
+.add_product-page .custom-file-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.add_product-page .custom-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff6b6b;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.add_product-page .custom-button:hover {
+  background-color: #e63946;
+}
+
+.add_product-page .file-input {
+  display: none;
+}
+
+.add_product-page .image-preview-swiper {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px; /* يضيف مسافة صغيرة فوق السوايبر */
+}
+
+.add_product-page .image-preview-swiper .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add_product-page .image-preview-swiper img {
+  width: 100%;
+  max-width: 100%;
+  height: 250px; /* يمكنك التعديل حسب الحاجة */
+  object-fit:contain; /* يحافظ على نسبة الأبعاد داخل السوايبر */
+  border-radius: 8px; /* يعطي حواف ناعمة مثل الحقول الأخرى */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف لتحسين الشكل */
+}
