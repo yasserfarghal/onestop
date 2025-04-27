@@ -1,5 +1,5 @@
 import React from "react";
-import logo from '../../assets/furniture-logo_23-2148613625.avif'
+import logo from "../../assets/Group 153.png";
 import { Container, Row, Col , ListGroup , ListGroupItem } from "react-bootstrap";
 import {  Link } from "react-router-dom";
 import MapPinLine from 'remixicon-react/MapPinLineIcon'
@@ -19,16 +19,12 @@ const Footer = () => {
               <Link to="home">
                 <img src={logo} alt="logo" className="img" />
               </Link>
-              <div>
-                <h1>TAGLINE</h1>
-              </div>
+              <p className="footer_text">
+              One Stop – Your Ultimate Shopping Destination Effortless shopping, endless options. Explore, shop, and save with ease – designed for convenience and tailored for you.
+            </p>
             </div>
 
-            <p className="footer_text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, fugiat obcaecati, 
-              culpa excepturi maxime explicabo doloremque ipsam nihil expedita, voluptas nesciunt 
-              dignissimos dolore voluptatum minima quisquam. Sequi possimus est quam?
-            </p>
+
           </Col>
 
           <Col lg={2} md={2} className="mb-3">
@@ -62,11 +58,11 @@ const Footer = () => {
               <ListGroup className="footerLinks_wrapper">
 
                 <ListGroupItem className="footerLink">
-                  <Link to="#">Chairs</Link>
+                  <Link to="#">Phones</Link>
                 </ListGroupItem>
 
                 <ListGroupItem className="footerLink">
-                  <Link to="#">Sofas</Link>
+                  <Link to="#">Tvs</Link>
                 </ListGroupItem>
 
                 <ListGroupItem className="footerLink">
@@ -74,7 +70,7 @@ const Footer = () => {
                 </ListGroupItem>
 
                 <ListGroupItem className="footerLink">
-                  <Link to="#">Beds</Link>
+                  <Link to="#">Perfume</Link>
                 </ListGroupItem>
 
               </ListGroup>
@@ -90,21 +86,21 @@ const Footer = () => {
                   <span>
                     <MapPinLine className="contactIcons"/>
                   </span>
-                  <p>123 zamalek, cairo</p>
+                  <p>123 elmokattm, cairo</p>
                 </ListGroupItem>
 
                 <ListGroupItem className="footerLink d-flex">
                   <span>
                     <PhoneLine className="contactIcons"/>
                   </span>
-                  <p>+01553355475</p>
+                  <p>+01153133361</p>
                 </ListGroupItem>
 
                 <ListGroupItem className="footerLink d-flex">
                   <span>
                     <MailLine className="contactIcons" />
                   </span>
-                  <p>Yasserfarghal@gmail.com</p>
+                  <p>Yasso.dev@gmail.com</p>
                 </ListGroupItem>
 
 
@@ -114,7 +110,7 @@ const Footer = () => {
           
           <Col lg={12} md={12}>
             <p className="footer_copyRight text-center">
-              Copyright {year} developed by <span>Yasser Farghal.</span> All rights reserved.
+              Copyright {year} developed by <span>Yasser mahmmoud</span> All rights reserved.
             </p>
           </Col>
         </Row>

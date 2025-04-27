@@ -11,13 +11,14 @@ import ProductList from "../components/ui/ProductList";
 import Heart2Fill from "remixicon-react/Heart2FillIcon";
 import { favActions } from "../redux/slices/favSlice";
 import useGetData from "../custom_hooks/useGetData";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc, setDoc, getDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 import { db } from "../firebaseConfigure";
 import useAuth from "../custom_hooks/useAuth";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+
 
 
 const Productdetails = () => {
@@ -52,40 +53,75 @@ const Productdetails = () => {
     toast.success("product have done add");
   };
 
-  const addToFav = () => {
-    const itemInFav = favs.find((item) => item.id === favs.id);
-
-    if (!itemInFav) {
-      dispatch(
-        favActions.addFav({
+  const addToFav = async () => {
+    if (!user) {
+      toast.error("You must login first!");
+      navigate("/login");
+      return;
+    }
+  
+    const productDocRef = doc(db, "products", productData.id);
+  
+    try {
+      const docSnap = await getDoc(productDocRef);
+  
+      if (!docSnap.exists()) {
+        toast.error("Product not found");
+        return;
+      }
+  
+      const product = docSnap.data();
+      const likedBy = product.likedBy || [];
+  
+      const isLiked = likedBy.includes(user.uid);
+  
+      if (isLiked) {
+        // Remove user ID from likedBy
+        await updateDoc(productDocRef, {
+          lovedBy: arrayRemove(user.uid),
+        });
+  
+        dispatch(favActions.remFav({
           id: productData.id,
           name: productData.name,
           price: productData.price,
           img: productData.img,
           desc: productData.desc,
-        })
-      );
-      setfave("disactive")
-
-
-      toast.success("product have done fav");
-    }     else {
-       
-        dispatch(
-          favActions.remFav({
-            id: productData.id,
-            name: productData.name,
-            price: productData.price,
-            img: productData.img,
-            desc: productData.desc,
-          })
-        );
-        setfave("active")
-
-        toast.success("product have done removed fav");
-      
+        }));
+  
+        setfave("active");
+        toast.success("Removed from favorites");
+      } else {
+        // Add user ID to likedBy
+        await updateDoc(productDocRef, {
+          lovedBy: arrayUnion(user.uid),
+        });
+  
+        dispatch(favActions.addFav({
+          id: productData.id,
+          name: productData.name,
+          price: productData.price,
+          img: productData.img,
+          desc: productData.desc,
+        }));
+  
+        setfave("disactive");
+        toast.success("Added to favorites");
+      }
+    } catch (error) {
+      console.error("Error updating likedBy array:", error);
+      toast.error("Something went wrong!");
     }
   };
+
+  useEffect(() => {
+    if (productData && user) {
+      const isLiked = productData.likedBy?.includes(user.uid);
+      setfave(isLiked ? "disactive" : "active");
+    }
+  }, [productData, user]);
+  
+  
 
   const calculateAverageRating = (feedbacks) => {
     if (!feedbacks || feedbacks.length === 0) {
@@ -234,6 +270,7 @@ const Productdetails = () => {
       <Col md={6} lg={6}>
         <div>
           <h2 className="product_name">{productData.name}</h2>
+          <h2 className="product_name">{productData.category},{productData.subCategory}</h2>
           <div className="product_details">
             <div className="product_rating-feedbac mb-0 d-flex align-items-center">
               <RatingComponent />
@@ -251,8 +288,9 @@ const Productdetails = () => {
                   </motion.button>
 
                   <motion.button whileTap={{ scale: 1.1 }} onClick={addToFav} className="fav_button">
-                    <Heart2Fill className={fave === "active" ? "favIcon" : "disactive-fav"} />
-                  </motion.button>
+  <Heart2Fill className={fave === "active" ? "favIcon" : "disactive-fav"} />
+</motion.button>
+
                 </div>
               </>
             ) : null}

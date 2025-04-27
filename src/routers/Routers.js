@@ -4,7 +4,11 @@ import Home from '../pages/Home';
 import Shop from '../pages/Shop';
 import Cart from '../pages/Cart.jsx';
 import ProductDetials from '../pages/Productdetails.jsx';
-import Checkout from '../pages/Checkout';
+import Checkout from '../pages/Checkout.jsx';
+import OrdersUser from '../pages/OrdersUser.jsx';
+import OrdersUserDetails from '../pages/OrderDetails.jsx';
+
+
 import Login from '../pages/Login';
 import SignUp from '../pages/Signup';
 import Error404 from '../pages/Error404';
@@ -31,6 +35,13 @@ const Routers = () => {
       <Route path="checkout" element={<Protected />}>
         <Route index element={<Checkout />} />
       </Route>
+      <Route path="orders" element={<Protected />}>
+      <Route index element={<OrdersUser />} />
+      
+      </Route>
+
+      <Route path="Orders/:id" element={<OrdersUserDetails />} />
+
       <Route path="profile" element={<Protected />}>
         <Route index element={<Profile />} />
       </Route>

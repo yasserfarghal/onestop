@@ -52,7 +52,9 @@ function ProductCard(props) {
         <div className="p-2 product_details">
         <div className=" product_info">
           <h3 className="product_name d-flex align-items-center justify-content-between">
-            <Link to={`/shop/${data.id}`}>{data.name}</Link>
+          <Link to={`/shop/${data.id}`} title={data.name}>
+  {data.name.length > 12 ? data.name.slice(0, 12) + "..." : data.name}
+</Link>
             <span className="d-flex align-items-center"><StarSFill className="starIcon"/> ({calculateAverageRating(data.feedbacks)})</span>
           </h3>
           <span className="text-center">{data.category}</span>

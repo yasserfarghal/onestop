@@ -71,6 +71,7 @@ section {
   width: 100%;
   height: 80px;
   line-height: 62px;
+  background-color:#F36A6D;
 }
 
 .nav_wrapper {
@@ -221,7 +222,7 @@ section {
 
 /*1-start hero section*/
 .hero_section {
-  background: linear-gradient(90deg, #F56A6D, #F1686B, #ED6669, #EB6669, #8F3E40);  ;
+  background: linear-gradient(90deg, #000000 , #666666);  ;
   width: 100%;
 }
 
@@ -236,14 +237,14 @@ section {
 .hero_section .hero_subtitle {
   font-size: 20px;
   font-weight: 600;
-  color: rgb(60, 60, 60);
+  color: whitesmoke;
   margin-top: 14px;
 }
 
 .hero_section p {
   font-size: 16px;
   font-weight: 200;
-  color: rgb(60, 0, 12);
+  color: white;
   line-height: 26px;
   margin-bottom: 20px;
 }
@@ -374,7 +375,7 @@ section {
 
 /*4-start sections website section*/
 .home .sales .sales_section {
-  background-image: url("https://img.freepik.com/free-vector/special-offer-sale-banner-hexagonal-shape-with-stars_1017-16283.jpg?1&w=1480&t=st=1692197350~exp=1692197950~hmac=97592aa5dd9d3645f0048dfa83376f721f0a1e88e4a6b73b3d8cbaf005324b2e");
+  background-image: url("../src/assets/Group 698.png");
   background-size:cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -538,7 +539,7 @@ section {
 /**-start footer section*/
 .footer {
   padding-top: 40px;
-  background-color: rgba(195, 128, 156, 0.714);
+  background: linear-gradient(45deg, #F56A6D, #F1686B, #ED6669, #EB6669, #E56366, #E16164);  ;
   width: 100%;
   position:relative;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.288);
@@ -576,6 +577,10 @@ section {
   border-top: 0.5px solid black;
 }
 
+.footer .logo {
+  width:100%;
+}
+
 /**-end footer section*/
 
 
@@ -607,7 +612,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid rgba(197, 79, 116, 0.566);
+  border: 1px solid whitesmoke;
   padding: 6px 12px;
   border-radius: 15px;
 }
@@ -623,7 +628,7 @@ section {
   width: 20px;
   height: 20px;
   margin-top: 2px;
-  color: rgba(197, 79, 116, 0.786);
+  color: whitesmoke
 }
 
 /*end shop design page*/
@@ -1140,6 +1145,7 @@ section {
   margin-left: 0;
   padding-left: 8px;
   background-color: transparent;
+  color:white;
 }
 
 
@@ -1460,7 +1466,7 @@ section {
   object-fit: fill;
 }
 
-.host .order_details-section .order_actions button{
+ .order_details-section .order_actions button{
   width: 80%;
   padding: 10px;
   border: none;
@@ -1987,4 +1993,99 @@ section {
   object-fit:contain; /* يحافظ على نسبة الأبعاد داخل السوايبر */
   border-radius: 8px; /* يعطي حواف ناعمة مثل الحقول الأخرى */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف لتحسين الشكل */
+}
+
+
+.product_details-info .custom-file-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.product_details-info  .custom-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff6b6b;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.product_details-info  .custom-button:hover {
+  background-color: #e63946;
+}
+
+.product_details-info  .file-input {
+  display: none;
+}
+
+.product_details-info  .image-preview-swiper {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px; /* يضيف مسافة صغيرة فوق السوايبر */
+}
+
+.product_details-info .image-preview-swiper .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product_details-info .image-preview-swiper img {
+  width: 100%;
+  max-width: 100%;
+  height: 250px; /* يمكنك التعديل حسب الحاجة */
+  object-fit:contain; /* يحافظ على نسبة الأبعاد داخل السوايبر */
+  border-radius: 8px; /* يعطي حواف ناعمة مثل الحقول الأخرى */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف لتحسين الشكل */
+}
+
+
+.filters-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 25px;
+}
+
+.filters-card .search_box {
+  border: 1px solid #dc3545; 
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  height: 40px;
+}
+
+.filters-card .search_box input {
+  border: none;
+  outline: none;
+  flex: 1;
+}
+
+.filters-card .searchIcon {
+  color: #dc3545;
+  font-size: 20px;
+}
+
+.filters-card .form-select,
+.filters-card .form-control {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  height: 40px;
+}
+
+@media (max-width: 768px) {
+  .filters-card .form-select,
+  .filters-card .form-control,
+  .filters-card .search_box {
+    margin-bottom: 10px;
+  }
 }

@@ -3,10 +3,10 @@ import { Container, Row, Col, Form } from "react-bootstrap";
 import Helmet from "../components/helmet/Helmet";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
-import { createUserWithEmailAndPassword, updateProfile, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db, storage } from "../firebaseConfigure";
 import { Link, useNavigate } from "react-router-dom";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc,doc,setDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 const Signup = () => {
@@ -39,7 +39,7 @@ const Signup = () => {
 
   const handleSubmitter = async (e) => {
     e.preventDefault();
-
+  
     if (!user.email || !user.password) {
       toast.error("Please enter both email and password.");
     } else if (!isValidEmail(user.email)) {
@@ -55,30 +55,40 @@ const Signup = () => {
           user.password
         );
         const newUser = userCredential.user; // Get the user object from userCredential
-
-        // Upload image to Firebase Storage
-        const storageRef = ref(storage, `images/${user.name}`);
-        const uploadImg = uploadBytesResumable(storageRef, user.img);
-
-        // Get the download URL of the uploaded image
-        const downloadURL = await getDownloadURL(uploadImg.snapshot.ref);
-
+  
+        // Upload image to Firebase Storage if image exists
+        let downloadURL = null;
+        if (user.img) {
+          const storageRef = ref(storage, `images/${user.name}`);
+          const uploadImg = uploadBytesResumable(storageRef, user.img);
+  
+          // Wait for the image upload to finish
+          await uploadImg;
+  
+          // Get the download URL of the uploaded image
+          downloadURL = await getDownloadURL(uploadImg.snapshot.ref);
+        }
+  
         // Update displayName and photoURL
         await updateProfile(newUser, {
           displayName: user.name,
-          photoURL: downloadURL,
+          photoURL: downloadURL || "",
         });
-
+  
         // Add the user data to Firebase Firestore
         const userData = {
           Name: user.name,
           Email: user.email,
           Password: user.password,
-          img: downloadURL,
-          userId:newUser.uid,
+          img: downloadURL || "", // Handle the case if there's no image
+          userId: newUser.uid,
         };
         await addDoc(collection(db, "users"), userData);
-
+  
+        // Initialize the favorites subcollection for the new user
+        const favoritesRef = doc(db, "users", newUser.uid, "favorites", "userFavorites");
+        await setDoc(favoritesRef, {});  // Empty object or any initial data you prefer
+  
         setUser({
           name: "",
           email: "",
@@ -86,20 +96,19 @@ const Signup = () => {
           img: null, // Reset the img state to null after registering
         });
         toast.success("Account Created!");
-        signOut(auth).then(() => {
-        }).catch((error) => {
-          // An error happened.
-        });
+  
+        // Navigate to login page after successful registration
         navigate("/login");
       } catch (error) {
+        console.error("Error creating account or adding user data:", error);
         toast.error("Error creating account or adding user data.");
       }
     }
   };
+  
 
   // Helper function to validate email format
   const isValidEmail = (email) => {
-    // Regular expression for basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
@@ -174,7 +183,12 @@ const Signup = () => {
                     REGISTER
                   </motion.button>
                 </form>
-                <p className="text-center mt-5 pb-0 d-flex justify-content-center fw-bold">Have Account Already.? <motion.p whileHover={{scale:1.1}} className="pl-3 "> <Link to="/login">LOGIN</Link> </motion.p></p>
+                <p className="text-center mt-5 pb-0 d-flex justify-content-center fw-bold">
+                  Have Account Already.?{" "}
+                  <motion.p whileHover={{ scale: 1.1 }} className="pl-3 ">
+                    <Link to="/login">LOGIN</Link>
+                  </motion.p>
+                </p>
               </div>
             </Col>
           </Row>

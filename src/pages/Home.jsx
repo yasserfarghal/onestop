@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Helmet from "../components/helmet/Helmet";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
-import furnitureExample from "../assets/pngwing.com (6).png";
+import furnitureExample from "../assets/71fj7myyDkL._AC_SL1500__thumbnail 1.png";
 import Services from "../components/services/services";
 import Trendingproducts from "../components/trendingProducts/Trendingproducts";
 import BestSales from "../components/bestsales/BestSales";
@@ -73,7 +73,7 @@ const Home = () => {
                   </Col>
                   <Col md={6} lg={6} sm={6}>
                     <div className="beds_section d-flex align-items-top">
-                      <p>Beds</p>
+                      <p>Fashion</p>
                     </div>
                   </Col>
                 </Row>

@@ -2,31 +2,32 @@ import React from "react";
 import Helmet from "../components/helmet/Helmet";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import useAuth from "../custom_hooks/useAuth";
-import { useNavigate } from "react-router-dom";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebaseConfigure";
 import { toast } from "react-toastify";
 import { cartAction } from "../redux/slices/cartSlice";
 import useGetData from "../custom_hooks/useGetData";
 
-
 const Checkout = () => {
+  const formatDate = (date) => {
+    const options = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true };
+    return new Intl.DateTimeFormat('en-GB', options).format(date).replace(',', '');
+  };
 
-  const dispatch =useDispatch()
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { currentUser } = useAuth();
+  const { data: users, loading: usersLoading } = useGetData("users");
 
-  const {currentUser} = useAuth();
-
-  const {data:users , loading:usersLoading} = useGetData("users")
   const data = useSelector((state) => state.cart.cartItems);
   const totalPrice = useSelector((state) => state.cart.totalAmount);
   const totalQty = useSelector((state) => state.cart.totalQuantity);
 
-  const [loading, setLoading] = React.useState(false);
+  const [quickEmail, setQuickEmail] = React.useState('');
+  const usersFromFirebaseCollection = users ? users.find(item => item.Email === quickEmail) : null;
 
   const [order, setOrder] = React.useState({
     name: "",
@@ -35,11 +36,14 @@ const Checkout = () => {
     phone: "",
     address: "",
     building: "",
+    orderDate: "",
+    orderActionDate: "",
+    paymentMethod: "",
+    cardName: "",
+    cardNumber: "",
+    cardExpiry: "",
+    cardCVV: ""
   });
-
-  const [quickEmail, setQuickEmail] = React.useState('');
-
-  const usersFromFirebaseCollection = users? users.find(item=>item.Email ===quickEmail) : null
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,7 +55,7 @@ const Checkout = () => {
 
   const handleSubmitter = async (e) => {
     e.preventDefault();
-  
+
     if (!currentUser) {
       navigate("/login");
     } else if (
@@ -60,54 +64,53 @@ const Checkout = () => {
       order.area === "" ||
       order.building === "" ||
       order.governorate === "" ||
-      order.phone === ""
+      order.phone === "" ||
+      order.paymentMethod === "" ||
+      (order.paymentMethod === "card" && (
+        order.cardName === "" ||
+        order.cardNumber === "" ||
+        order.cardExpiry === "" ||
+        order.cardCVV === ""
+      ))
     ) {
       toast.error("Please Complete Your Information");
-    } else {
-      try {
-        // Create a reference to the 'orders' collection in Firestore
-        const docRef = collection(db, "orders");
-  
-        // Combine form data and cart data to form the complete order
-        const orderData = {
-          ...order,
-          cartItems: data,
-          totalAmount: totalPrice,
-          totalQuantity: totalQty,
+      return;
+    }
+
+    try {
+      const docRef = collection(db, "orders");
+
+      const orderData = {
+        ...order,
+        cartItems: data,
+        totalAmount: totalPrice,
+        totalQuantity: totalQty,
+        userId: currentUser ? currentUser.uid : null,
+        email: currentUser && currentUser.email !== null ? currentUser.email : quickEmail,
+        state: "request",
+        userImg: currentUser ? currentUser.photoURL : null,
+        orderDate: formatDate(new Date()),
+      };
+
+      await addDoc(docRef, orderData);
+
+      if (usersFromFirebaseCollection === null) {
+        const userRef = collection(db, "users");
+        const userData = {
           userId: currentUser ? currentUser.uid : null,
-          email:  currentUser&&currentUser.email!== null ? currentUser.email : quickEmail,
-          state:"request",
-          userImg: currentUser ? currentUser.photoURL : null
+          email: currentUser && currentUser.email !== null ? currentUser.email : quickEmail,
+          state: "request",
+          userImg: currentUser ? currentUser.photoURL : null,
         };
-  
-        // Save the order data to Firestore using the 'addDoc' function
-        await addDoc(docRef, orderData);
-
-        if(usersFromFirebaseCollection === null ){
-
-          const docRef = collection(db, "users");
-
-          const orderData = {
-            userId: currentUser ? currentUser.uid : null,
-            email:  currentUser&&currentUser.email!== null ? currentUser.email : quickEmail,
-            state:"request",
-            userImg: currentUser ? currentUser.photoURL : null
-          };
-    
-          // Save the order data to Firestore using the 'addDoc' function
-          await addDoc(docRef, orderData);
-
-
-        }
-  
-        toast.success("Order Sent. Please Wait Until Communication With You");
-        dispatch(cartAction.resetCart())
-        navigate("..")
-
-      } catch (error) {
-        console.error("Error submitting order to Firestore:", error);
-        toast.error("An error occurred. Please try again later.");
+        await addDoc(userRef, userData);
       }
+
+      toast.success("Order Sent. Please Wait Until Communication With You");
+      dispatch(cartAction.resetCart());
+      navigate("..")
+    } catch (error) {
+      console.error("Error submitting order to Firestore:", error);
+      toast.error("An error occurred. Please try again later.");
     }
   };
   
@@ -278,6 +281,48 @@ const Checkout = () => {
                     />
                   </Form.Group>
                 </Row>
+
+                                <Row className="mb-3">
+                  <Form.Group controlId="formBasicEmail" className="col">
+                    <Form.Label className="fw-bold">Payment Method</Form.Label>
+                    <Form.Select name="paymentMethod" onChange={handleChange}>
+                      <option value="">Select Payment Method</option>
+                      <option value="cash">Cash on Delivery</option>
+                      <option value="card">Credit / Debit Card</option>
+                    </Form.Select>
+                  </Form.Group>
+                </Row>
+
+                {order.paymentMethod === "card" && (
+                  <>
+                    <Row className="mb-3">
+                      <Form.Group className="col">
+                        <Form.Label className="fw-bold">Cardholder Name</Form.Label>
+                        <Form.Control type="text" name="cardName" placeholder="Name on Card" onChange={handleChange} />
+                      </Form.Group>
+                    </Row>
+                    <Row className="mb-3">
+                      <Form.Group className="col">
+                        <Form.Label className="fw-bold">Card Number</Form.Label>
+                        <Form.Control type="text" name="cardNumber" placeholder="1234 5678 9012 3456" onChange={handleChange} />
+                      </Form.Group>
+                    </Row>
+                    <Row className="mb-3">
+                      <Col>
+                        <Form.Group>
+                          <Form.Label className="fw-bold">Expiry Date</Form.Label>
+                          <Form.Control type="text" name="cardExpiry" placeholder="MM/YY" onChange={handleChange} />
+                        </Form.Group>
+                      </Col>
+                      <Col>
+                        <Form.Group>
+                          <Form.Label className="fw-bold">CVV</Form.Label>
+                          <Form.Control type="text" name="cardCVV" placeholder="CVV" onChange={handleChange} />
+                        </Form.Group>
+                      </Col>
+                    </Row>
+                  </>
+                )}
 
                 <motion.button
                   whileTap={{ scale: 1.1 }}

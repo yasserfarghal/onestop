@@ -25,6 +25,21 @@ const AddProducts = () => {
     price: "", // EGP Price
     prices: { egp: "", usd: "", sar: "" }, // Object to store all currencies
   });
+
+  const [subCategory, setSubCategory] = useState("");
+
+  const subCategoryOptions = {
+    Perfume: ["Men", "Women", "Unisex"],
+    Electronics: ["Phones", "Laptops", "Accessories"],
+    Furniture: ["Tables", "Chairs", "Beds"],
+    Watches: ["Luxury", "Casual", "Sport"],
+    Clothes: ["Men", "Women", "Kids"],
+    Beauty: ["Skincare", "Makeup", "Hair"],
+  };
+  
+
+  const [coverIndex, setCoverIndex] = useState(0); // الغلاف الافتراضي هو أول صورة
+
   
 
   const [previewImages, setPreviewImages] = useState([]);
@@ -82,26 +97,33 @@ const handleChange = (e) => {
   const handleSubmitter = async (e) => {
     e.preventDefault();
   
-    if (!product.name || !product.shortDesc || !product.fullDesc || product.images.length === 0 || !product.category || !product.price) {
-      toast.error("Please fill in all fields.");
+    if (!product.name || !product.shortDesc || !product.fullDesc || product.images.length === 0 || !product.category || !subCategory || !product.price) {
+      toast.error("Please fill in all fields including subcategory.");
       return;
     }
+    
   
     try {
       setLoading(true);
       const docRef = collection(db, "products");
       const imageUrls = await uploadImagesToFirebase(product.images);
+      const coverImage = imageUrls[0]; // أول صورة
   
       await addDoc(docRef, {
         name: product.name,
         shortDesc: product.shortDesc,
         fullDesc: product.fullDesc,
         images: imageUrls,
+        img: coverImage,
         category: product.category,
+        subCategory, // ✅ أضف هذا السطر
         price: product.price,
-        prices: product.prices, // Store multiple currency prices
+        prices: product.prices,
         feedbacks: [{ userName: "", rate: null, feed: "" }],
+        lovedBy: [],
       });
+      
+      
   
       setProduct({
         name: "",
@@ -229,12 +251,39 @@ const handleChange = (e) => {
                             onChange={handleChange}
                           >
                             <option value="">Select a Category</option>
-                            <option value="sofa">Sofas</option>
-                            <option value="chair">Chairs</option>
-                            <option value="bed">Beds</option>
+                            <option value="Perfume">Perfume</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Furniture">Furniture</option>
+                            <option value="Watches">Watches</option>
+                            <option value="Clothes">Clothes</option>
+                            <option value="Beauty">Beauty</option>
+
+
                           </Form.Control>
                       </Form.Group>
                     </Row>
+
+                    {product.category && subCategoryOptions[product.category] && (
+  <Row className="mb-3">
+    <Form.Group controlId="formSubCategory" className="col">
+      <Form.Label className="fw-bold">Subcategory</Form.Label>
+      <Form.Control
+        as="select"
+        className="form-control"
+        value={subCategory}
+        onChange={(e) => setSubCategory(e.target.value)}
+      >
+        <option value="">Select a Subcategory</option>
+        {subCategoryOptions[product.category].map((sub, idx) => (
+          <option key={idx} value={sub}>
+            {sub}
+          </option>
+        ))}
+      </Form.Control>
+    </Form.Group>
+  </Row>
+)}
+
 
 
                     <Row className="mb-3">

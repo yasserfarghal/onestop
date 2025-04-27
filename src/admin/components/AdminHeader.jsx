@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Container, Col, Row } from "react-bootstrap";
-import logo from "../../assets/Group 181.png";
+import logo from "../../assets/Group 153.png";
 import userImg from "../../assets/149071.png";
 import Menu4Line from "remixicon-react/Menu4LineIcon";
 import { motion } from "framer-motion";

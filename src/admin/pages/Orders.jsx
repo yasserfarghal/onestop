@@ -260,7 +260,7 @@ const Orders = () => {
                                 whileTap={{ scale: 1.2 }}
                                 className="pr-2"
                               >
-                                <Link to={`/dashboard/orders/${item.id}`}>
+                                <Link to={`/OrderDetails${item.id}`}>
                                   <InformationLine className="Icon" />
                                 </Link>
                               </motion.span>
