@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 import { cartAction } from "../redux/slices/cartSlice";
 import AddFill from "remixicon-react/AddFillIcon";
 import SubtractLine from "remixicon-react/SubtractLineIcon";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
